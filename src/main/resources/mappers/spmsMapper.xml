@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappers.spmsMapper">
+
+	<select id="selectList" parameterType="Criteria"  resultType="ProjectVO">
+		select * from project_management order by no desc limit #{pageStart}, #{perPageNum};
+	</select>
+	
+	<insert id="insert" parameterType="ProjectVO">
+		insert into project_management 
+			values(0, #{project_name}, #{project_content}, #{begin_date}, #{end_date}, #{project_statement});
+	</insert>
+	
+	<select id="selectByNo" parameterType="int" resultType="ProjectVO">
+		select * 
+			from project_management
+			where no = #{no}; 
+	</select>
+
+	<select id="selectTotalCnt" resultType="int">
+		select count(no) from project_management;
+	</select>
+	
+	<update id="update" parameterType="ProjectVO">
+		update project_management
+			set project_name = #{project_name},
+				project_content = #{project_content},
+				begin_date = #{begin_date}, 
+				end_date = #{end_date}, 
+				project_statement = #{project_statement} 
+			where no = #{no};
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from project_management where no = #{no};
+	</delete>
+
+
+
+</mapper>
