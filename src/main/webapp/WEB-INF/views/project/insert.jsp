@@ -11,11 +11,11 @@
 			<label>프로젝트 내용</label>
 			<textarea name="project_content" cols="50" rows="10"></textarea>
 		</p>
-		<p>
+<!-- 		<p>
 			<label>참여인원</label>
 			<div></div>
 			<button>추가</button>
-		</p>
+		</p> -->
 		<p>
 			<label>시작날짜</label>
 			<input type="date" name="begin_date">
